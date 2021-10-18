@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       
       <Route path='/catagory/:id' exact>
-          <CatagoryPlaylist token={token}Z/>
+          <CatagoryPlaylist token={token}/>
       </Route>
 
       <Route path='/' exact>
