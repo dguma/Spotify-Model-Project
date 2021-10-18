@@ -5,14 +5,7 @@ import './App.css';
 import CatagoryList from './components/CatagoryList';
 import CatagoryPlaylist from './components/CatagoryPlaylist';
 
-
-
 function App() {
-
-  const spotify = {
-    clientId: 'a52e57521e2f49a88c43eae0080eb576',
-    clientSecret: '6bda5bd705784296b082da507e5909d5'
-  }
 
   const [token, setToken] = useState('')
   const [genres, setGenres] = useState([])
@@ -26,7 +19,7 @@ function App() {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization' : 'Basic ' + (new Buffer.from(spotify.clientId + ':' + spotify.clientSecret).toString('base64'))
+        'Authorization' : 'Basic ' + (new Buffer.from(process.env.REACT_APP_SPOTIFY_CLIENT_ID + ':' + process.env.REACT_APP_SPOTIFY_CLIENT_SECRET).toString('base64'))
       },
       body: 'grant_type=client_credentials'
     })
@@ -51,13 +44,11 @@ function App() {
   }, [])
   console.log(genres)
 
-
-
   return (
     <div className="App">
       
       <Route path='/catagory/:id' exact>
-          <CatagoryPlaylist token={token} spotify={spotify}/>
+          <CatagoryPlaylist token={token}Z/>
       </Route>
 
       <Route path='/' exact>

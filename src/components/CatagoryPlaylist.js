@@ -62,7 +62,7 @@ useEffect(() => {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization' : 'Basic ' + (new Buffer.from(props.spotify.clientId + ':' + props.spotify.clientSecret).toString('base64'))
+        'Authorization' : 'Basic ' + (new Buffer.from(process.env.REACT_APP_SPOTIFY_CLIENT_ID + ':' + process.env.REACT_APP_SPOTIFY_CLIENT_SECRET).toString('base64'))
       },
       body: 'grant_type=client_credentials'
     })
@@ -82,6 +82,7 @@ useEffect(() => {
 
 console.log(playlists)
 console.log(playlistContent)
+
 
 let {id} = useParams();
 
