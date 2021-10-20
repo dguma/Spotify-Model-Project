@@ -6,8 +6,8 @@ import styled from 'styled-components';
 const GenreContainerDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    width: 20%;
+    flex-direction: row;
+    /* width: 20%; */
     margin: 0 auto;
     justify-content: center;
     align-items: center;

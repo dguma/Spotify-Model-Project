@@ -31,7 +31,7 @@ const PlaylistContainer = styled.div`
         }
     }
 
-    @media screen and (max-width:375px) {
+    @media screen and (max-width:828px) {
         .contentContainer {
             width: 100%;
             height: 100%;

@@ -11,8 +11,10 @@ const HeroContainer = styled.div`
     height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    padding: 0 1em;
+    text-align: center;
     color: white;
     font-size: 150%;
     box-shadow: #002128 0 0 .75em .25em;
