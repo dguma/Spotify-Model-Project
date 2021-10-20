@@ -3,8 +3,8 @@ import { useParams } from 'react-router';
 import styled from 'styled-components';
 
 const Thumbnail = styled.img`
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
 `;
 
 const PlaylistContainer = styled.div`
@@ -14,6 +14,9 @@ const PlaylistContainer = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
+    color: white;
+    font-size: 1.25em;
+    margin-top: 2em;
 
     .contentContainer {
         width: 25%;
@@ -24,15 +27,35 @@ const PlaylistContainer = styled.div`
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-bottom: 2em;
+        }
+    }
+
+    @media screen and (max-width:375px) {
+        .contentContainer {
+            width: 100%;
+            height: 100%;
         }
     }
 `;
 
 const PlaylistListContainer = styled.div`
     width: 100%;
-    height: 25vh;
+    height: 40vh;
     overflow-y: scroll;
     color: white;
+    background: radial-gradient(circle, rgba(2,40,51,1) 0%, rgba(0,33,40,1) 100%);
+    box-shadow: #002128 0 0 .75em .25em;
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    h3 {
+        text-align: center;
+        margin: 5em 0;
+    }
 
     ul {
         display: flex;
@@ -41,6 +64,12 @@ const PlaylistListContainer = styled.div`
         align-items: center;
         flex-wrap: wrap;
         list-style-type: none;
+        padding-left: 0;
+        font-size: 1.25em;
+
+        a {
+            color: white;
+        }
 
         li {
             padding: 1em;
@@ -102,10 +131,13 @@ function handler(event) {
 
     return (
         <div>
-           <h1>{id}</h1>
+            
 
            <PlaylistListContainer>
-                <ul>
+                <h1>{id}</h1>
+
+                {(playlistContent.length === 0) ? 
+                <h3>Select a playlist</h3> : <ul>
                     {playlistContent.map((data) => {
                         return (
                             <a href={data.track.preview_url} >
@@ -113,11 +145,11 @@ function handler(event) {
                                     {data.track.name}
                                     <audio src={data.track.preview_url}/>
                                 </li>
-                                </a>
+                            </a>
                             
                         )
                     })}
-                </ul>
+                </ul>}
           </PlaylistListContainer>
            
             <PlaylistContainer>

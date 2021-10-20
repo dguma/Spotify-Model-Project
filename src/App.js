@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import './App.css';
 import CatagoryList from './components/CatagoryList';
 import CatagoryPlaylist from './components/CatagoryPlaylist';
+import Header from './components/Header';
+import Hero from './components/Hero';
 
 function App() {
 
@@ -46,12 +48,13 @@ function App() {
 
   return (
     <div className="App">
-      
+      <Header />
       <Route path='/catagory/:id' exact>
           <CatagoryPlaylist token={token}/>
       </Route>
 
       <Route path='/' exact>
+        <Hero />
         <CatagoryList genres={genres} />
       </Route>
 
